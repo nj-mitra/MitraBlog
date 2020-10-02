@@ -1,0 +1,39 @@
+﻿@model CategoryEditVm
+@{
+    ViewData["Title"] = " دسته بندی جدید";
+}
+<div class="my-5">
+    <h1 class="text-right"> دسته بندی جدید</h1>
+    <hr />
+</div>
+
+<div class="container mb-5">
+    <form asp-action="Edit" method="post" class="col-12 mx-5 text-right">
+        @*<div asp-validation-summary="ModelOnly" class="text-danger"></div>*@
+
+        <div class="form-group">
+            <label asp-for="Id" class="control-label"></label>
+            <input asp-for="Id" class="form-control" readonly />
+
+        </div>
+        <div class="form-group">
+            <label asp-for="Title" class="control-label"></label>
+            <input asp-for="Title" class="form-control" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                <input type="submit" value="ثبت" class="btn btn-primary btn-block" />
+            </div>
+            <div class="col-6">
+                <a asp-controller="CategoryManagment" asp-action="List" class="btn btn-danger btn-block">بازگشت</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

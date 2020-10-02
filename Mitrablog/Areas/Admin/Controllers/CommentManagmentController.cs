@@ -25,7 +25,8 @@ namespace Mitrablog.Areas.Admin.Controllers
                     {
                         Id = item.Id,
                         Name = item.Name,
-                        Email = item.Email
+                        Email = item.Email,
+                        Text=item.Text
                     });
                 }
                 return View(viewmodel);

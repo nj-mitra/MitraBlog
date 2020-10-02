@@ -54,5 +54,34 @@ namespace Mitrablog.Areas.Admin.Controllers
             }
             return RedirectToAction("List", "CategoryManagment");
         }
+
+        public IActionResult Edit(int Id)
+        {
+            using (var ctx = new ApplicationContext())
+            {
+                var category = ctx.PostCategories.Find(Id);
+                CategoryEditVm model = new CategoryEditVm
+                {
+                    Id = category.Id,
+                    Title = category.Title
+                };
+
+                return View(model);
+            }
+        }
+        [HttpPost]
+        public IActionResult Edit(CategoryEditVm viewmodel)
+        {
+            if (ModelState.IsValid)
+            {
+                using (var ctx = new ApplicationContext())
+                {
+                    var category = ctx.PostCategories.Find(viewmodel.Id);
+                    category.Title = viewmodel.Title;
+                    ctx.SaveChanges();
+                }
+            }
+            return RedirectToAction("List", "CategoryManagment");
+        }
     }
 }

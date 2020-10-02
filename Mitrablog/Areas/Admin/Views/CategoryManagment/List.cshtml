@@ -3,11 +3,11 @@
         ViewData["Title"] = "مدیریت دسته بندی";
     }
 
-    <h1>  مدیریت دسته بندی  </h1>
-    <div class="nav-item">
+    <h1 class="text-right">  مدیریت دسته بندی  </h1>
+    <div class="nav-item mt-3 mb-3  text-left">
         <a class="btn btn-warning" type="submit" asp-controller="CategoryManagment" asp-action="Create" value="">دسته بندی جدید</a>
     </div>
-    <table class="table table-striped table-responsive">
+    <table class="table table-striped">
         <thead>
             <tr>
                 <td>شناسه</td>
@@ -23,7 +23,9 @@
                     <tr>
                         <td>@item.Id</td>
                         <td>@item.Title</td>
-                        <td></td>
+                        <td>
+                            <a class="btn btn-primary" asp-controller="CategoryManagment" asp-action="Edit" asp-route-Id=@item.Id>ویرایش</a>
+                        </td>
                     </tr>
                 }
             }

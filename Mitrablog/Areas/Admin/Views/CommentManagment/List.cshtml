@@ -3,55 +3,36 @@
     ViewData["Title"] = "مدیریت نظرات";
 }
 
-<h1>  مدیریت نظرات </h1>
+<h1 class="text-right">  مدیریت نظرات </h1>
 
-<table class="table table-striped table-responsive">
-    <thead>
-        <tr>
-            <td>شناسه</td>
-            <td>نام</td>
-            <td>ایمیل</td>
-            <td>دستورات</td>
-        </tr>
-    </thead>
-    <tbody>
-        @if (Model != null && Model.Count > 0)
-        {
-            @foreach (var item in Model)
+<div class="row">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td>شناسه</td>
+                <td>نام</td>
+                <td>ایمیل</td>
+                <td>نظر</td>
+               <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Count > 0)
             {
-                <tr>
-                    <td>@item.Id</td>
-                    <td>@item.Name</td>
-                    <td>@item.Email</td>
-                    <td>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
-                            مشاهده
-                        </button>
-                        <a asp-controller="CommentManagment" asp-action="Accept" asp-route-Id=@item.Id>تایید</a> |
-                        <a asp-controller="CommentManagment" asp-action="Reject" asp-route-Id=@item.Id>رد</a>
-                    </td>
-                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Name</td>
+                        <td>@item.Email</td>
+                        <td>@item.Text</td>
+                        <td>
+                            <a class="btn btn-success" asp-controller="CommentManagment" asp-action="Accept" asp-route-Id=@item.Id>تایید</a> |
+                            <a class="btn btn-danger" asp-controller="CommentManagment" asp-action="Reject" asp-route-Id=@item.Id>رد</a>
+                        </td>
+                    </tr>
+                }
             }
-        }
-    </tbody>
-</table>
-<!-- Modal -->
-<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">مشاهده نظر</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer text-left">
-                <a asp-controller="CommentManagment" asp-action="Reject" class="btn btn-danger">رد</a>
-                <a asp-controller="CommentManagment" asp-action="Accept" class="btn btn-success">تایید</a>
-            </div>
-        </div>
-    </div>
+        </tbody>
+    </table>
 </div>

@@ -12,14 +12,7 @@
 </head>
 <body>
     <header class="bg-dark text-light">
-        @*<div>
-            <div class="logo">
-                <a href="index.html"><img src="~/img/logo.png" alt="#" dir="rtl"></a>
-
-                <h1>  <span>   <a asp-area="" asp-controller="Home" asp-action="Index" dir="ltr">میترا بلاگ</a> </span></h1>
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">میترا بلاگ</a>
-            </div>
-        </div>*@
+       
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark border-bottom box-shadow mb-3">
             <div class="container">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -77,20 +70,16 @@
                     <p>این سایت به منظور ارائه پروژه کاردانی بنده طراحی شده است</p>
                 </div>
                 <div class="col-4">
-                    <h3>ارتباط با ما</h3>
-                    <p><strong style="font-family:sans-serif;"> 2020 &copy; - NajafiGoldGallery</strong></p>
-                    <!--Facebook-->
-                    <a class="text-light mr-3" href="" target="_blank"><i class="fa fa-lg fa-twitter"></i></a>
-                    <!--Instagram-->
-                    <a class="text-light mr-3" href="" target="_blank"><i class="fa fa-lg fa-instagram"></i></a>
-                    <!--WhatsApp-->
-                    <a class="text-light mr-3" href="" target="_blank"><i class="fa fa-lg fa-whatsapp"></i></a>
+                    <h3>ارتباط با ما</h3>                    
+                    <!---->
+                   
+                    <a class="text-light mr-3" href="https://github.com/nj-mitra" target="_blank"><i class="fa fa-lg fa-github"></i></a>
 
                 </div>
                 <div class="col-4">
                     <form asp-controller="Home" asp-action="SendMail" method="post">
                         <div class="form-group text-right">
-                            <label>برای اطلاع از جشنواره ها لطفا ایمیل خود را وارد کنید</label>
+                            <label>برای اطلاع از آخرین اخبار سایت ایمیل خود را وارد کنید</label>
                         </div>
                         <div id="SendEmail" class="form-group text-left">
                             <input name="txtemail" class="form-control text-left mb-2" type="text" placeholder="mail@example.com" style="font-family:sans-serif" />

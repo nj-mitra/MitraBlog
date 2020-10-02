@@ -14,10 +14,12 @@
     </h1>
     <hr />
 </div>
-
+<div class="col-12">
+    <img src="data:image/jpeg;base64, @Model.Image" alt="@Model.Title" width="600" height="480" />
+</div>
 <!-- Portfolio Item Row -->
 <div class="row">
-    <div class="col-4">
+    
         <div class=" text-justify">
             <h3 class="my-3">@Model.Title</h3>
             <p>@Model.Content</p>
@@ -33,10 +35,8 @@
             </form>
         </div>
     </div>
-    <div class="col-8">
-        <img src="data:image/jpeg;base64, @Model.Image" alt="@Model.Title" width="600" height="480" />
-    </div>
-</div>
+
+
 <hr />
 <div class="col-8">
     <div class="card my-4 text-right">
@@ -69,7 +69,7 @@
     </div>
     <div class="media mb-4 text-right">
         <div class="media-body">
-            @if (Model.Comments != null || Model.Comments.Count>0)
+            @if (Model.Comments != null || Model.Comments.Count > 0)
             {
                 @foreach (var item in Model.Comments)
                 {
