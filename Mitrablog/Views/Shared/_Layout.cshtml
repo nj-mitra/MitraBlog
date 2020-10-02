@@ -13,13 +13,13 @@
 <body>
     <header class="bg-dark text-light">
         @*<div>
-                <div class="logo">
-                    <a href="index.html"><img src="~/img/logo.png" alt="#" dir="rtl"></a>
+            <div class="logo">
+                <a href="index.html"><img src="~/img/logo.png" alt="#" dir="rtl"></a>
 
-                    <h1>  <span>   <a asp-area="" asp-controller="Home" asp-action="Index" dir="ltr">میترا بلاگ</a> </span></h1>
-                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">میترا بلاگ</a>
-                </div>
-            </div>*@
+                <h1>  <span>   <a asp-area="" asp-controller="Home" asp-action="Index" dir="ltr">میترا بلاگ</a> </span></h1>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">میترا بلاگ</a>
+            </div>
+        </div>*@
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark border-bottom box-shadow mb-3">
             <div class="container">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -45,12 +45,21 @@
                         <li class="nav-item">
                             <a class="nav-link text-light" href="#SendEmail">ارتباط با ما</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="Admin" asp-controller="PostManagment" asp-action="List">پنل ادمین</a>
-                        </li>
                     </ul>
                     <a class="navbar-brand" href="">میترا بلاگ</a>
                 </div>
+                @if (!User.Identity.IsAuthenticated)
+                {
+                    <div class="nav-item">
+                        <a class="nav-link text-light" asp-area="Account" asp-controller="Account" asp-action="Login">ورود</a>
+                    </div>
+                }
+                else
+                {
+                    <div class="nav-item">
+                        <a class="nav-link text-light" asp-area="Admin" asp-controller="PostManagment" asp-action="List">پنل ادمین</a>
+                    </div>
+                }
             </div>
         </nav>
     </header>

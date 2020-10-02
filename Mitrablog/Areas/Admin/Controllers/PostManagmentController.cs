@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Mitrablog.Areas.Admin.ViewModel;
 using Mitrablog.Models;
 using Mitrablog.Models.Posts;
@@ -10,6 +11,7 @@ using System.Linq;
 namespace Mitrablog.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize]
     public class PostManagmentController : Controller
     {
         public IActionResult List()

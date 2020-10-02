@@ -1,15 +1,17 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using Mitrablog.Models.Account;
 using Mitrablog.Models.Emails;
 using Mitrablog.Models.Posts;
 
 namespace Mitrablog.Models
 {
-    public class ApplicationContext : DbContext
-
+    public class ApplicationContext : IdentityDbContext<AppUser>
     {
         public DbSet<Post> Posts { get; set; }
         public DbSet<PostCategory> PostCategories { get; set; }
         public DbSet<Email> Emails { get; set; }
+        public DbSet<Comment> Comments { get; set; }
 
 
 

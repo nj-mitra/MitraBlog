@@ -14,5 +14,6 @@ namespace Mitrablog.Models.Posts
         public string Content { get; set; }
         public int Like { get; set; }
         public int DisLike { get; set; }
+        public List<Comment> Comments { get; set; }
     }
 }
