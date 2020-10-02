@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Mitrablog.Models;
+using Mitrablog.Models.Emails;
 using Mitrablog.Models.Posts;
 using Mitrablog.ViewModel;
 
@@ -34,7 +35,26 @@ namespace Mitrablog.Controllers
             }
         }
 
-       
+        [HttpPost]
+        public IActionResult SendMail(string txtemail)
+        {
+            using (var ctx = new ApplicationContext())
+            {
+                if (!string.IsNullOrEmpty(txtemail))
+                {
+                    if (!ctx.Emails.Any(x => x.Mail == txtemail))
+                    {
+                        var email = new Email()
+                        {
+                            Mail = txtemail
+                        };
+                        ctx.Emails.Add(email);
+                        ctx.SaveChanges();
+                    }
+                }
+            }
+            return RedirectToAction("Index");
+        }
 
     }
 }
