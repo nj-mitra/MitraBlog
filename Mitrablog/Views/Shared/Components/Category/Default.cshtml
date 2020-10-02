@@ -1,0 +1,10 @@
+﻿@model List<Mitrablog.Models.Posts.PostCategory>
+@if (Model != null && Model.Count > 0)
+{
+    @foreach (var item in Model)
+    {
+        <a class="dropdown-item" asp-controller="" asp-action="" asp-route-Id=@item.Id>@item.Title</a>
+    }
+}
+
+
