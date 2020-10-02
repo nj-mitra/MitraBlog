@@ -1,0 +1,50 @@
+﻿@model AddPostVm 
+@{
+    Layout = "_Layout";
+}
+@{
+    ViewData["Title"] = "پست جدید";
+}
+
+<div class="my-5">
+    <h1 class="text-right">ایجاد پست جدید</h1>
+    <hr />
+</div>
+
+<div class="container mb-5">
+    <form asp-action="Create" method="post" enctype="multipart/form-data" class="col-12 mx-5 text-right">
+        @*<div asp-validation-summary="ModelOnly" class="text-danger"></div>*@
+        <div class="form-group">
+            <label asp-for="Title" class="control-label"></label>
+            <input asp-for="Title" class="form-control" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Content" class="control-label"></label>
+            <textarea asp-for="Content" class="form-control"></textarea>
+            <span asp-validation-for="Content" class="text-danger"></span>
+        </div>
+        @*<div class="form-group">
+            <label asp-for="CategoryId" class="control-label"></label>
+            <select asp-for="CategoryId" class="form-control" asp-items="Model.GetCategoriesListItem()"></select>
+        </div>*@
+        <div class="form-group">
+            <label asp-for="Image" class="control-label"></label>
+            <input asp-for="Image" class="form-control" type="file" />
+            <span asp-validation-for="Image" class="text-danger"></span>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <input type="submit" value="ثبت" class="btn btn-primary btn-block" />
+            </div>
+            @*<div class="col-6">
+                <a asp-controller="PostManager" asp-action="List" class="btn btn-danger btn-block">بازگشت</a>
+            </div>*@
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

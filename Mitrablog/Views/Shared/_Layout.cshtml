@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>گالری طلا نجفی - @ViewData["Title"]</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link href="~/lib/bootstrap-rtl/css/bootstrap-rtl.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header class="bg-dark text-light">
+
+
+
+        <div class="media">
+            <br />
+            <h1 class="font" dir="rtl"> گالری نجفی </h1>
+
+        </div>
+
+
+        @*<div>
+                <div class="logo">
+                    <a href="index.html"><img src="~/img/logo.png" alt="#" dir="rtl"></a>
+
+                    <h1>  <span>   <a asp-area="" asp-controller="Home" asp-action="Index" dir="ltr">گالری نجفی</a> </span></h1>
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">گالری نجفی</a>
+                </div>
+            </div>*@
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark border-bottom box-shadow mb-3">
+            <div class="container">
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-controller="Home" asp-action="Index">صفحه اصلی</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-light" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                دسته بندی
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                @*@await Component.InvokeAsync("Category");*@
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="#top">درباره ما</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="#SendEmail">ارتباط با ما</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main role="main">
+        <div class="container">
+            @RenderBody()
+        </div>
+    </main>
+    <footer class="bg-dark text-light py-5">
+        <div class="container justify-content-between text-center">
+            <div class="row">
+                <div class="col-4 text-right">
+                    <h3>درباره من</h3>
+                    <p><span class="text-warning">میترا نجفی</span> هستم</p>
+                    <p>این سایت به منظور ارائه پروژه کاردانی بنده طراحی شده است</p>
+                </div>
+                <div class="col-4">
+                    <h3>ارتباط با ما</h3>
+                    <p><strong style="font-family:sans-serif;"> 2020 &copy; - NajafiGoldGallery</strong></p>
+                    <!--Facebook-->
+                    <a class="text-light mr-3" href="" target="_blank"><i class="fa fa-lg fa-twitter"></i></a>
+                    <!--Instagram-->
+                    <a class="text-light mr-3" href="" target="_blank"><i class="fa fa-lg fa-instagram"></i></a>
+                    <!--WhatsApp-->
+                    <a class="text-light mr-3" href="" target="_blank"><i class="fa fa-lg fa-whatsapp"></i></a>
+
+                </div>
+                <div class="col-4">
+                    <form asp-controller="Home" asp-action="SendMail" method="post">
+                        <div class="form-group text-right">
+                            <label>برای اطلاع از جشنواره ها لطفا ایمیل خود را وارد کنید</label>
+                        </div>
+                        <div id="SendEmail" class="form-group text-left">
+                            <input name="txtemail" class="form-control text-left mb-2" type="text" placeholder="mail@example.com" style="font-family:sans-serif" />
+                            <input type="submit" class="btn btn-primary " value="ثبت" onclick="alert('با موفقیت ثبت شد.ممنون از همراهیتون')" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
