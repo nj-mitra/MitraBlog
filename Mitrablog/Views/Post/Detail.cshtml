@@ -1,0 +1,83 @@
+﻿@model PostDetailVm
+@{
+    Layout = "_Layout";
+}
+@{
+    ViewData["Title"] = "جزئیات پست";
+}
+
+
+<div class="my-5">
+    <h1 class="text-right">
+
+        <span class="text-info">@Model.Title</span>
+    </h1>
+    <hr />
+</div>
+
+<!-- Portfolio Item Row -->
+<div class="row">
+    <div class="col-4">
+        <div class=" text-justify">
+            <h3 class="my-3">@Model.Title</h3>
+            <p>@Model.Content</p>
+
+
+        </div>
+        <div class="input-group-text justify-content-end">
+            <form method="post">
+                <span class="text-muted">@Model.DisLike</span>
+                <input type="image" src="~/img/Dislike.png" asp-controller="Post" asp-action="DislikePost" asp-route-Id="@Model.Id" width="30" height="30" />
+                <span class="text-muted">@Model.Like</span>
+                <input type="image" src="~/img/like.png" asp-controller="Post" asp-action="LikePost" asp-route-Id="@Model.Id" width="30" height="30" />
+            </form>
+        </div>
+    </div>
+    <div class="col-8">
+        <img src="data:image/jpeg;base64, @Model.Image" alt="@Model.Title" width="750" height="500" />
+    </div>
+</div>
+<div class="row">
+    <form asp-action="Comment" method="post" class="col-12 mx-5 text-right">
+
+        @*<div class="form-group">
+            <label asp-for="CommentVm.Name" class="control-label"></label>
+            <input asp-for="CommentVm.Name" class="form-control" />
+            <span asp-validation-for="CommentVm.Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="CommentVm.Email" class="control-label"></label>
+            <input asp-for="CommentVm.Email" class="form-control" />
+            <span asp-validation-for="CommentVm.Email" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="CommentVm.Text" class="control-label"></label>
+            <textarea asp-for="CommentVm.Text" class="form-control"></textarea>
+            <span asp-validation-for="CommentVm.Text" class="text-danger"></span>
+        </div>*@
+        <div class="row">
+            <div class="col-6">
+                <input type="submit" value="ثبت نظر" class="btn btn-primary btn-block" />
+            </div>
+        </div>
+    </form>
+</div>
+<div>
+    @*@if (Model.Comments != null)
+    {
+        @foreach (var item in Model.Comments)
+        {
+            <div>
+                <span>Name:</span><span>@item.Name</span>
+                <span>Comment</span><span>@item.Text</span>
+                <hr />
+            </div>
+        }
+    }
+    else
+    {
+        <p>هیچ نظری ثبت نشده است.</p>
+    }*@
+</div>
+
+

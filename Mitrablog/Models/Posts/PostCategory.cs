@@ -3,19 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Mitrablog.Models
+namespace Mitrablog.Models.Posts
 {
-    public class Post
+    public class PostCategory
     {
         public int Id { get; set; }
         public string Title { get; set; }
-        public string content { get; set; }
-        public string Like { get; set; }
-       
-
-
-
-
-
+        public List<Post> Posts { get; set; }
     }
 }

@@ -1,0 +1,84 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+    font-family:nastalighFont;!important
+  }
+}
+@font-face {
+    font-family: wahmFont;
+    src: url('/font/Wahm Farsi .ttf');
+}
+
+@font-face {
+    font-family: rasmiFont;
+    src: url('/font/B Yekan.TTF');
+}
+
+@font-face {
+    font-family: nastalighFont;
+    src: url('/font/IranNastaliq.ttf');
+}
+.font {
+    font-family: nastalighFont;
+    font-size: 70px;
+}
+
+@font-face {
+    font-family: titr;
+    src: url('/font/BTitrTGEBold.ttf');
+}
+
+@font-face {
+    font-family: kodak;
+    src: url('/font/BKoodakBold.ttf');
+}
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    font-family: kodak;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  /* Set the fixed height of the footer here */
+
+   /* Vertically center the text there */
+}

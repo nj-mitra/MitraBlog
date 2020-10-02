@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>گالری طلا نجفی - @ViewData["Title"]</title>
+    <title>میترا بلاگ- @ViewData["Title"]</title>
 
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     <link href="~/lib/bootstrap-rtl/css/bootstrap-rtl.css" rel="stylesheet" />
@@ -12,27 +12,16 @@
 </head>
 <body>
     <header class="bg-dark text-light">
-
-
-
-        <div class="media">
-            <br />
-            <h1 class="font" dir="rtl"> گالری نجفی </h1>
-
-        </div>
-
-
         @*<div>
                 <div class="logo">
                     <a href="index.html"><img src="~/img/logo.png" alt="#" dir="rtl"></a>
 
-                    <h1>  <span>   <a asp-area="" asp-controller="Home" asp-action="Index" dir="ltr">گالری نجفی</a> </span></h1>
-                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">گالری نجفی</a>
+                    <h1>  <span>   <a asp-area="" asp-controller="Home" asp-action="Index" dir="ltr">میترا بلاگ</a> </span></h1>
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">میترا بلاگ</a>
                 </div>
             </div>*@
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark border-bottom box-shadow mb-3">
             <div class="container">
-
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -56,8 +45,11 @@
                         <li class="nav-item">
                             <a class="nav-link text-light" href="#SendEmail">ارتباط با ما</a>
                         </li>
-
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="Admin" asp-controller="PostManagment" asp-action="List">پنل ادمین</a>
+                        </li>
                     </ul>
+                    <a class="navbar-brand" href="">میترا بلاگ</a>
                 </div>
             </div>
         </nav>
@@ -103,7 +95,6 @@
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>

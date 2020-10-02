@@ -1,47 +1,75 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Mitrablog.Models;
+using Mitrablog.Models.Posts;
 using Mitrablog.ViewModel;
 
 namespace Mitrablog.Controllers
 {
     public class PostController : Controller
     {
-        public IActionResult Create()
+        public IActionResult Detail(int Id)
         {
-            return View();
+            using (var ctx = new ApplicationContext())
+            {
+                Post post = ctx.Posts.Find(Id);
+                //List<Comment> comments = ctx.Comments.Where(x => x.PostId == Id).ToList();
+                PostDetailVm model = new PostDetailVm()
+                {
+                    Id = post.Id,
+                    Title = post.Title,
+                    Image = post.Image,
+                    Like = post.Like,
+                    DisLike = post.DisLike,
+                    Content = post.Content,
+                    //Comments = comments
+                };
+                return View(model);
+            }
         }
         [HttpPost]
-        public IActionResult Create(AddPostVm viewmodel)
-      
+        public IActionResult LikePost(int Id)
         {
-            if (ModelState.IsValid)
+            using (var ctx = new ApplicationContext())
             {
-                using (var ctx = new ApplicationContext())
-                {
-                    var post = new Post()
-                    {
-                        Title = viewmodel.Title,
-                        content = viewmodel.Content,
-                        //CategoryId = viewmodel.CategoryId
-                    };
-                    //if (viewmodel?.Image?.Length > 0)
-                    //{
-                    //    using (var ms = new MemoryStream())
-                    //    {
-                    //        viewmodel.Image.CopyTo(ms);
-                    //        var fileByte = ms.ToArray();
-                    //        post.Image = Convert.ToBase64String(fileByte);
-                    //    }
-                    ctx.Posts.Add(post);
-                    ctx.SaveChanges();
-                }
-                
+                Post post = ctx.Posts.Find(Id);
+                post.Like++;
+                ctx.SaveChanges();
+                return RedirectToAction("Detail", new { Id = post.Id });
             }
-            return View(viewmodel);
         }
+
+        [HttpPost]
+        public IActionResult DislikePost(int Id)
+        {
+            using (var ctx = new ApplicationContext())
+            {
+                Post post = ctx.Posts.Find(Id);
+                post.DisLike++;
+                ctx.SaveChanges();
+                return RedirectToAction("Detail", new { Id = post.Id });
+            }
+        }
+        //[HttpPost]
+        //public IActionResult Comment(PostDetailVm model)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        using (var ctx = new ApplicationContext())
+        //        {
+        //            var comment = new Comment()
+        //            {
+        //                PostId = 1,S
+        //                Name = model.CommentVm.Name,
+        //                Email = model.CommentVm.Email,
+        //                Text = model.CommentVm.Text,
+        //                Active = false
+        //            };
+        //            ctx.Comments.Add(comment);
+        //            ctx.SaveChanges();
+        //        }
+        //    }
+        //    return RedirectToAction("Detail");
+        //}
+
     }
 }
